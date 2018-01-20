@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var lunch =window.confirm("中午吃啥");
+    var isFor=true;
+    if(lunch) {
+        var personName = new Array();
+        var personNum = window.prompt("几个人");
+        if(!isNaN(personNum)){
+            for (var i = 0; i < personNum; i++) {
+                personName[i] = window.prompt("第" + (i + 1) + "个人叫什么？");
+                if(!personName[i]){
+                    break;
+                }
+        }
+        }
+        //查询数组内容  console.log(personName);
+        if(isFor){
+            for (var j=0;j<personName.length;j++) {
+                var string1 = personName[j];
+                var a = Math.random();
+                a = a * 10;
+                a = Math.floor(a);
+                switch (a) {
+                    case 1:
+                        alert(string1 + "吃" + "宫保鸡丁");
+                        break;
+                    case 2:
+                        alert(string1 + "吃" + "鱼香肉丝");
+                        break;
+                    case 3:
+                        alert(string1 + "吃" + "锅包肉");
+                        break;
+                    case 4:
+                        alert(string1 + "吃" + "溜肉段");
+                        break;
+                    case 5:
+                        alert(string1 + "吃" + "排骨");
+                        break;
+                    case 6:
+                        alert(string1 + "吃" + "水煮鱼");
+                        break;
+                    case 7:
+                        alert(string1 + "吃" + "酸菜鱼");
+                        break;
+                    case 8:
+                        alert(string1 + "吃" + "小鸡蘑菇");
+                        break;
+                    case 9:
+                        alert(string1 + "吃" + "烤鸭");
+                        break;
+                    case 10:
+                        alert(string1 + "吃" + "麻辣烫");
+                        break;
+//            default:
+//                alert("ddsd");
+                }
+            }
+        }else {
+                alert("输入人名中断");
+            }
+    }
+       else
+        {
+            alert("取消");
+        }
+</script>
+</body>
+</html>

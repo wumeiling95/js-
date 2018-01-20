@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var aa=new Array();
+    var c=confirm("吃什么呢？");
+    if (c){
+        var which=window.prompt("几个人吃");
+
+            if (which) {
+                for (var i = 0; i < which; i++) {
+                    aa[i] = window.prompt("第" + (i + 1) + "个人叫什么？");
+                }
+                if(true) {
+                    for (i = 0; i < which; i++) {
+                        var a = Math.random();
+                        a = a * 10;
+                        a = Math.floor(a);
+                        switch (a) {
+                            case 1:
+                                alert(aa[i] + "吃" + "宫保鸡丁");
+                                break;
+                            case 2:
+                                alert(aa[i] + "吃" + "鱼香肉丝");
+                                break;
+                            case 3:
+                                alert(aa[i] + "吃" + "锅包肉");
+                                break;
+                            case 4:
+                                alert(aa[i] + "吃" + "溜肉段");
+                                break;
+                            case 5:
+                                alert(aa[i] + "吃" + "排骨");
+                                break;
+                            case 6:
+                                alert(aa[i] + "吃" + "水煮鱼");
+                                break;
+                            case 7:
+                                alert(aa[i] + "吃" + "酸菜鱼");
+                                break;
+                            case 8:
+                                alert(aa[i] + "吃" + "小鸡蘑菇");
+                                break;
+                            case 9:
+                                alert(aa[i] + "吃" + "烤鸭");
+                                break;
+                            case 10:
+                                alert(aa[i] + "吃" + "麻辣烫");
+                                break;
+//            default:
+//                alert("ddsd");
+                        }
+                    }
+                }
+        }
+//                alert(people+"吃"+a);
+    }else{
+        alert("知道你还问我！")
+    }
+</script>
+</body>
+</html>
