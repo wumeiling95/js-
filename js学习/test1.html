@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+//    var b="123";
+//    alert("b");
+
+//    var aa=window.prompt("aaaa");
+//    console.log(aa);
+
+//var aa=prompt("妈妈问：有对象没？")
+//if("b"){
+//    alert("person.name");
+//}else{
+//    alert("妈妈：哦~");
+//}
+
+
+var person={
+    name:"xiaoming",
+    age:"30"
+}
+var aa=prompt("妈妈问：有对象没？")
+if(aa=="有"||aa=="没有"){
+    if(aa=="有"){
+        var b="";
+        var c="";
+        for( b in person){
+           c=c+person[b];
+        }
+        alert(c);
+    }
+    if(aa=="没有"){
+        alert("妈妈说：哦~");
+    }
+}
+
+//
+//var aa=prompt("妈妈问：有对象没？")
+//switch(aa){
+//    case "有":
+//        alert(person.name+" "+person.age);
+//        break;
+//    case "没有":
+//        alert("哦");
+//    break;
+//}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var person={
+        name:"xiaoming",
+        age:"30",
+        school:""
+    };
+    var aa=window.prompt("妈妈问：有对象没？");
+    if(aa=="有"||aa=="没有"){
+        if(aa=="有"){
+            var bb=window.prompt("妈妈问：哪个学校的？");
+            person.school=bb;
+            alert(person.school);
+        }
+        else{
+            alert("妈妈说：哦~");
+        }
+    }else{
+        alert("妈妈说：别打岔，很你说对象的事呢");
+    }
+</script>
+</body>
+</html>
