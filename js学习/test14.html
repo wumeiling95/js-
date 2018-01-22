@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    3.编写程序，计算10!(即 1*2*3＊·…10）的结果(10的阶乘)。
+
+//    function fun(n) {
+//    if (n == 1){
+//        return 1;
+//    }
+//   return n*fun(n-1);
+//}
+//   console.log(fun(10));
+    function fun(n) {
+        var a=1;
+        for(i=1;i<n;i++){
+            a*=i;
+        }
+        return a;
+    }
+    var sum=0;
+    for(var i=1;i<=10;i++){
+    sum +=fun(i);
+    }
+    console.log(sum);
+</script>
+</body>
+</html>
