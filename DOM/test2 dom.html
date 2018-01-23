@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <ul class="">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+//    var a = document.getElementById("testdiv");
+//    a.onclick=function () {
+//        console.log(1);
+//    }
+//    function testfun() {
+//        console.log("1");
+//    }
+
+    var a =document.getElementsByTagName("li");
+    for(var i=0;i<a.lenghth;i++){
+        a[i].onmouseover=function () {
+            this.className = "aa";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .active{
+        background-color: #00aaee;
+    }
+</style>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+<script>
+    var av1 = document.getElementsByTagName("li");
+    for(var i=0;i<av1.length;i++){
+        av1[i].onmouseover = function () {
+            this.className = "active";
+        }
+        av1[i].onmouseout = function () {
+            this.className = "";
+        }
+    }
+</script>
+</body>
+</html>
