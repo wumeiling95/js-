@@ -8,9 +8,9 @@
 <!--1.通过用户输入的年龄判断是哪个年龄段的人（儿童：年龄＜14；青少年：14<=年龄＜24；-->
 <!--青年：24<年龄＜40; 中年：40＜=年龄＜60; 老年：年龄>=60），并在页面上输出判断结果。-->
 <script>
-    var a=window.prompt("请输入你的年龄",0);
-    var b=parseInt(a);
-    alert(b);
+    var b=window.prompt("请输入你的年龄",0);
+//    var b=parseInt(a);   if是可以不用转换字符串的，但是switch是需要转换的
+//    alert(b);
     if (b<14) {
        alert("儿童");
     }else if(14 <= b&&b < 24){
