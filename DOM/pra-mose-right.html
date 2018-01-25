@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        ul{
+            list-style-type: none;
+            border:1px solid #ddd;
+            width: 150px;
+            display: none;
+            position: absolute;
+        }
+        ul li{
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul-menu" class="ul-cl">
+    <li links="www.baidu.com">设置已读</li>
+    <li links="www.sina.com">设置未读</li>
+    <li>关闭邮件</li>
+</ul>
+<script>
+    //鼠标右键点击出现标签
+    var oUl=document.getElementById("ul-menu");
+    document.oncontextmenu=function (e) {
+        e=e||window.event;
+        oUl.style.display = "block";
+        oUl.style.top = e.clientY+"px";
+        oUl.style.left = e.clientX+"px";
+        return false;
+    }
+    //鼠标点击其他地方右键效果消失
+    document.onclick = function(){
+        oUl.style.display = "none";
+    }
+    //点击标签挑跳转页面
+     var aLi = document.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function () {
+            var thisLink = this.getAttribute("links");
+            location.href = "http://"+thisLink;
+        }
+    }
+</script>
+</body>
+</html>

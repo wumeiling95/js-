@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        background-color: black;
+    }
+    /*.bc{*/
+        /*background-color: black;*/
+        /*width:100%;*/
+        /*height:100%;*/
+        /*position: relative;*/
+    /*}*/
+    .container{
+        width: 500px;
+        height: 300px;
+        position:relative;
+        margin:0 auto;
+        border: 8px solid #ffffff;
+    }
+    /*.container .picture{*/
+        /*!*display: none;*!*/
+        /*width: 3000px;*/
+        /*height: 300px;*/
+    /*}*/
+    .container img{
+        width: 500px;
+        height: 300px;
+        position: absolute;
+    }
+    .container #num{
+        color:#ffffff;
+        display: block;
+        position: relative;
+        list-style-type: none;
+        bottom: 30px;
+        left: 350px;
+    }
+    .container #lr{
+        color:#ffffff;
+        display: block;
+        position: relative;
+        list-style-type: none;
+        bottom: 30px;
+        left: -138px;
+        text-align: center;
+        z-index:100;
+    }
+    .container li{
+        float: left;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-color: #f67000;
+        border-radius:50%;
+        margin-right: 10px;
+        text-align: center;
+        position: relative;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="picture">
+                <img class="" src="image/11.jpg">
+                <img class="" src="image/22.jpg">
+                <img class="" src="image/33.jpg">
+                <img class="" src="image/44.jpg">
+                <img class="" src="image/11.jpg">
+            </div>
+            <div class="sl">
+                <ul id="num">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+                <ul id="lr">
+                    <li>&lt;</li>
+                    <li>&gt;</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<script>
+    var aP = document.getElementById("img");
+    var aPic = document.getElementById("num").getElementsByTagName("li");
+    var aNum = document.getElementById("lr").getElementsByTagName("li");
+    for (var i=0;i<aPic.length;i++){
+        aPic[i].onclick = function () {
+            var thisSrc = this.getAttribute("src");
+            thisSrc.display = "block" ;
+            for (var j=0;j<aPic.length;j++){
+                aP[j].display = "none";
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

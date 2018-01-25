@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" id="lip" placeholder="请输入网址">
+    <input type="button" id="sl" value="跳转">
+</div>
+
+<script>
+    var oL =document.getElementById("lip");
+    var oS =document.getElementById("sl");
+    oS.onclick = function(){
+        var link=oL.value;
+        location.href = "http://"+link;
+    }
+
+    oL.onkeydown = function (e) {
+        console.log(e);
+        var link=oL.value;
+        var keyCod=e.keyCode;
+        if(keyCod==13){
+            location.href = "http://"+link;
+        }
+    }
+</script>
+</body>
+</html>

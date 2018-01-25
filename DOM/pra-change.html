@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            height: 250px;
+            width: 400px;
+            margin: 50px auto;
+            position: absolute;
+            top: 45px;
+            left: 450px;
+        }
+        .container .btn{
+            display: block;
+            position: relative;
+            margin: 30px 40px;
+            float: left;
+        }
+        .container button{
+            margin-left: 20px;
+        }
+        .container  #model{
+            width: 100px;
+            height: 100px;
+            background-color: #00aaee;
+            position: relative;
+            /* top: 75px; */
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="btn">
+        <!--用input type value-->
+        <button class="input">变宽</button>
+        <button class="input">变高</button>
+        <button class="input">变色</button>
+        <button class="input">隐藏</button>
+        <button class="input">重置</button>
+    </div>
+    <div id="model">
+    </div>
+</div>
+<script>
+    var aW = document.getElementsByClassName("input");
+    var oI = document.getElementById("model");
+    var arr1=["width","height","background-color","display"];
+    var arr2=["300px","300px","#dddddd","none"];
+    for(var i=0;i<aW.length;i++){
+        aW[i].index=i;
+        aW[i].onclick=function (){
+            var stylename=arr1[this.index];
+            var styleval=arr2[this.index];
+            oI.style[stylename]=styleval;
+            this.index==4 ? oI.style.cssText="" : oI.style[stylename]=styleval;
+            }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        ul{
+            list-style-type: none;
+            font-size: 30px;
+        }
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li>文本</li>
+        <li>文本</li>
+        <li>文本</li>
+    </ul>
+</div>
+
+<script>
+//    var oL = document.getElementsByTagName("li")
+//    for(var i=0;i<oL.length;i++){
+//        oL[i].onclick = function () {
+//            for(var j=0;j<oL.length;j++){
+//                oL[j].className="";
+//            }
+//            this.className="active";
+//        }
+//    }
+
+var oL = document.getElementsByTagName("li")
+for(var i=0;i<oL.length;i++){
+    oL[i].onclick = function () {
+        for(var j=0;j<oL.length;j++){
+            oL[j].classList.remove("active");
+        }
+        this.classList.add("active");
+    }
+}
+
+</script>
+</body>
+</html>

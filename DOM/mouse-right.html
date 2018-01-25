@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style-type: none;
+            border: 1px solid #ddd;
+            width:150px;
+            display: none;
+            position: absolute;
+        }
+        ul li{
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul-menu" class="ul-cn">
+    <li links="www.baidu.com">跳转</li>
+    <li>设置已读</li>
+    <li>删除邮件</li>
+</ul>
+<input type="text" id="test-input" value="hello">
+<script>
+
+     var oUl = document.getElementById("ul-menu");//根据id名获取
+    var aLi = document.getElementsByTagName("li");//根据标签名获取，多重
+
+     var oInput = document.getElementById("test-input");
+//    var aUlCn = document.getElementsByClassName("ulcl");//根据类名获取，多重
+//    console.log(oUl);
+//    console.log(aUl[0].innerHTML);//对象，内置属性，值
+//    console.log(aUlCn)；
+
+     alert(oInput.value);
+     //时间三要素：时间源、事件处理函数、事件对象
+    document.oncontextmenu = function (e) {
+        e=e||window.event;  //ie678时不识别,全兼容
+        oUl.style.display = "block";//赋值给样式的时候是字符串
+        //console.log(e.clientX);
+        oUl.style.top = e.clientY+"px";
+        oUl.style.left = e.clientX+"px";
+
+        return false;//删除浏览器默认行为
+    }
+    document.onclick = function () {
+        oUl.style.display="none";
+    }
+
+    for (var i=0;i<aLi.length;i++){
+        aLi[i].onclick=function () {
+            var thisLink=this.getAttribute("links");
+            location.href="http://"+thisLink;
+           // location.href="http://www.baidu.com";//操作地址栏
+//            var thisText=this.innerHTML;//innerHTML:输出带标签的内容 innerText：仅仅是文本内容
+//            alert(thisText);
+//          console.log(this);  //测试this的内容
+        }
+    }
+</script>
+</body>
+</html>

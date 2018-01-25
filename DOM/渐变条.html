@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .square{
+            width: 200px;
+            height: 50px;
+            background-color: red;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="square" id="d1" ></div>
+<div class="square" id="d2"></div>
+<div class="square" id="d3"></div>
+<script>
+    var aSq = document.getElementsByClassName("square");
+    for(var i=0;i<aSq.length;i++){
+        aSq[i].index=i;
+        var that=aSq[i];
+        aSq[i].onmouseover = function(){
+//            console.log(i);
+//             aSq[i].index=i;
+            setInterval(function () {
+               that.style.width = that.offsetWidth + 10 + "px";
+            }, 30);
+        }
+    }
+//            clearInterval(timer);
+//            timer = setInterval(function () {
+//                aSq[i].style.width = aSq[i].offsetWidth + 10 + "px";
+//            }, 30);
+//        }
+//        aSq[i].onmouseout = function () {
+//            clearInterval(timer);
+//            timer=setInterval(function () {
+//                aSq[i].style.width=aSq[0].offsetWidth-10+"px";
+//                if(aSq[i].style.width==200+"px"){
+//                    clearInterval(timer);
+//                }
+//            },30);
+//        }
+
+
+
+
+</script>
+</body>
+</html>

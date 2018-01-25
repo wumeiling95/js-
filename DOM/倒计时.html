@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="time-bar">
+    <h1 id="time-area">100</h1>
+    <button id="btn">开始</button>
+</div>
+<script>
+    var oTimer = document.getElementById("time-area");
+    var oBtn = document.getElementById("btn");
+    var num=100;
+    var k=1;
+    var timer;
+    function changeNum(){
+        oTimer.innerHTML=num;
+        num--;
+    }
+    oBtn.onclick = function () {
+        if(k==1){
+            timer = setInterval("changeNum()",1000);
+            this.innerText="暂停";
+        }else{
+            clearInterval(timer);
+            this.innerText="开始";
+        }
+        k*=-1;
+    }
+</script>
+</body>
+</html>

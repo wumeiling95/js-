@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font:12px/1.5 Tahoma;
+        }
+        input{
+            margin-right:5px;
+            vertical-align:middle;
+        }
+        #outer{
+            width:200px;
+            margin:10px auto;
+        }
+        #tips{padding:5px;
+            margin-top:5px;
+            background:#ffefa4;
+            border:1px solid #f90;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <label><input type="checkbox" id="xt">两周内登陆过</label>
+    <div id="tips">哈哈</div>
+
+</div>
+<script>
+    var oX = document.getElementsByTagName("label");
+    var oY = document.getElementById("tips");
+
+    oX[0].onmouseover = function () {
+        oY.style.display="block";
+    }
+    oX[0].onmouseout = function () {
+        oY.style.display="none";
+    }
+</script>
+</body>
+</html>
