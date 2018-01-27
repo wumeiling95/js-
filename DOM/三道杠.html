@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 50px;
+            background-color: #d32f2f;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="change-div"></div>
+<div class="change-div"></div>
+<div class="change-div"></div>
+<script>
+    var oDiv = document.getElementsByClassName("change-div")[0];
+    var timer;
+    oDiv.onmouseover = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            if (oDiv.offsetWidth>=600){
+                clearInterval(timer);
+            }else{
+                oDiv.style.width = oDiv.offsetWidth+10+"px";
+            }
+        },50);
+
+    }
+    oDiv.onmouseout = function(){
+        clearInterval(timer);
+        timer = setInterval(function () {
+            if(oDiv.offsetWidth <= 200){
+                clearInterval(timer);
+            }else{
+                oDiv.style.width = oDiv.offsetWidth-10+"px";
+            }
+        },50);
+
+    }
+
+
+    //  var timer;
+    //  oDiv[0].onmouseover = function () {
+    //
+    //      clearInterval(timer);
+    //      timer =setInterval(function () {
+    //
+    //          oDiv[0].style.width = oDiv[0].offsetWidth + 10 +"px";
+    //      },50)
+    //  }
+    //  oDiv[0].onmouseout = function () {
+    //      clearInterval(timer);
+    //      timer= setInterval(function () {
+    //          oDiv[0].style.width = oDiv[0].offsetWidth - 10 +"px"
+    //      },50)
+    //  }
+
+
+
+
+
+//    for(var i =0;i<oDiv.length;i++){
+//        bigChange(oDiv[i]);
+//    }
+//    function bigChange(obj) {
+//        obj.onmouseover = function () {
+//            clearInterval(obj.timer);
+//            obj.timer = setInterval(function () {
+//                if (obj.offsetWidth > 600) {
+//                    clearInterval(obj.timer);
+//                } else {
+//                    obj.style.width = obj.offsetWidth + 10 + "px";
+//                }
+//            }, 30)
+//        }
+//        obj.onmouseout = function () {
+//            clearInterval(obj.timer);
+//            obj.timer = setInterval(function () {
+//                if (obj.offsetWidth <= 200) {
+//                    clearInterval(obj.timer);
+//                } else {
+//                    obj.style.width = obj.offsetWidth - 10 + "px";
+//                }
+//            }, 30)
+//        }
+//    }
+</script>
+</body>
+</html>

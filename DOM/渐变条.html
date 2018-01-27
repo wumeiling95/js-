@@ -18,31 +18,61 @@
 <div class="square" id="d3"></div>
 <script>
     var aSq = document.getElementsByClassName("square");
+//    var timer;
+//    for(var i=0;i<aSq.length;i++) {
+//        aSq[i].index = i;
+//        aSq[i].onmouseover = function () {
+//            var that = this;
+//            clearInterval(that.timer);
+//            that.timer = setInterval(function () {
+//                if (that.offsetWidth == 600) {
+//                    clearInterval(that.timer);
+//                } else {
+//                    that.style.width = that.offsetWidth + 10 + "px";
+//                }
+//            }, 10);
+//            that.onmouseout = function () {
+//                var th = this;
+//                clearInterval(th.timer);
+//                th.timer = setInterval(function () {
+//                    if (th.style.width <= 200 + "px") {
+//                        clearInterval(th.timer);
+//                    } else {
+//                        th.style.width = th.offsetWidth - 10 + "px";
+//                    }
+//                }, 10);
+//            }
+//        }
+//    }
+//
+
     for(var i=0;i<aSq.length;i++){
-        aSq[i].index=i;
-        var that=aSq[i];
-        aSq[i].onmouseover = function(){
-//            console.log(i);
-//             aSq[i].index=i;
-            setInterval(function () {
-               that.style.width = that.offsetWidth + 10 + "px";
-            }, 30);
+        change(aSq[i]);
+    }
+    function change(obj){
+        obj.onmouseover = function () {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            if (obj.offsetWidth > 600) {
+                clearInterval(obj.timer);
+            } else {
+                obj.style.width = obj.offsetWidth + 10 + "px";
+            }
+        }, 10);
+    }
+        obj.onmouseout = function () {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (obj.offsetWidth < 200) {
+                    clearInterval(obj.timer);
+                } else {
+                    obj.style.width = obj.offsetWidth - 10 + "px";
+                }
+            }, 10);
         }
     }
-//            clearInterval(timer);
-//            timer = setInterval(function () {
-//                aSq[i].style.width = aSq[i].offsetWidth + 10 + "px";
-//            }, 30);
-//        }
-//        aSq[i].onmouseout = function () {
-//            clearInterval(timer);
-//            timer=setInterval(function () {
-//                aSq[i].style.width=aSq[0].offsetWidth-10+"px";
-//                if(aSq[i].style.width==200+"px"){
-//                    clearInterval(timer);
-//                }
-//            },30);
-//        }
+
+
 
 
 

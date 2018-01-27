@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        img{
+            width: 500px;
+            height: 200px;
+        }
+        .box{
+            width: 500px;
+            height: 200px;
+            margin:0 auto;
+            position: relative;
+        }
+        .box .picture{
+            width: 500px;
+            height: 200px;
+            border: 5px solid #f67000;
+            overflow: hidden;
+            position: absolute;
+        }
+        .box .picture ul{
+            position: relative;
+            width: 2500px;
+        }
+        .box .picture #pic li{
+            float: left;
+            position: relative;
+        }
+        .box .right-bt{
+            position: relative;
+            float: left;
+            text-align: center;
+        }
+        .box .btn li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            background-color: #ff6600;
+            bottom: -170px;
+            right: -370px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #ffffff;
+            margin-right: 5px;
+        }
+        .active{
+            background-color: #f67000;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box-bar">
+    <div class="picture" id="pic-bar">
+        <ul id="pic">
+            <li><img src="image/1.jpg"></li>
+            <li><img src="image/2.jpg"></li>
+            <li><img src="image/3.jpg"></li>
+            <li><img src="image/4.jpg"></li>
+            <li><img src="image/5.jpg"></li>
+        </ul>
+    </div>
+    <div class="btn">
+        <ul class="right-btn">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <div>
+        <ul class="left-bt">
+            <li id="prev">&lt;</li>
+            <li id="next">&gt;</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var oPic = document.getElementById("pic");
+
+
+    oPic.innerHTML += oPic.innerHTML;
+    oPic.style.width = oPic.offsetWidth * 2 + "px";
+    var direction = 5;
+    var isRun = false ;
+    setInterval(function(){
+        oPic.style.left = oPic.offsetLeft + direction +"px";
+        if(oPic.offsetLeft>0){
+            oPic.style.left = - oPic.offsetWidth/2 +"px";
+        }
+        if (oPic.offsetLeft<-oPic.offsetWidth/2){
+            oPic.style.left = 0;
+        }
+    },20)
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .clearfix{
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .slider-box{
+        width: 430px;
+        height: 100px;
+        margin:100px auto;
+        border:1px solid #dddddd;
+        padding:10px 0;
+        position: relative;
+        /*overflow: hidden;*/
+    }
+    .slider-box ul{
+        list-style-type: none;
+        width: 550px;
+        position: absolute;
+    }
+    .slider-box ul li{
+        color: #ffffff;
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        text-align: center;
+        line-height: 100px;
+        background-color: #000000;
+    }
+    .btn-bar{
+        width: 200px;
+        text-align: center;
+        margin:0 auto;
+    }
+    .btn-bar button{
+        padding:20px;
+        font-size: 25px;
+    }
+    </style>
+<body>
+<div class="slider-box">
+    <ul class="clearfix">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+<div class="btn-bar">
+    <button id="prev">left</button>
+    <button id="next">right</button>
+</div>
+<script>
+    var oUl = document.getElementsByTagName("ul")[0];
+    var oPre = document.getElementById("prev");
+    var oNext = document.getElementById("next");
+    oUl.innerHTML+=oUl.innerHTML;
+    oUl.style.width = oUl.offsetWidth * 2+"px";
+    var thiskey = -5;
+    var run = false ;
+    oPre.onclick = function (){
+        thiskey = -5;
+        run = true;
+    }
+    oNext.onclick = function (){
+        thiskey = +5;
+        run = true;
+    }
+    setInterval(function(){
+        if(run){
+            oUl.style.left = oUl.offsetLeft+thiskey+"px";
+            if(oUl.offsetLeft<-550){
+                oUl.style.left = 0;
+            }
+            if(oUl.offsetLeft >0){
+                oUl.style.left = -oUl.offsetWidth/2+6+"px";
+            }
+        }
+    },30)
+</script>
+</body>
+</html>
