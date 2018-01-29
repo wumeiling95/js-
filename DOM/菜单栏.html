@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        #container li{
+            width: 120px;
+            border: 1px solid;
+            text-align: center;
+            margin:0 auto;
+        }
+        #container h3{
+            background-color: #000000;
+            color: #fff;
+            cursor: pointer;
+        }
+        #container .submenu li:hover{
+            background-color: #ccc;
+        }
+        #container .submenu ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="container">
+    <li class="submenu">
+        <h3>管理区</h3>
+        <ul>
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+        </ul>
+    </li>
+    <li class="submenu">
+        <h3>交流区</h3>
+        <ul>
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+        </ul>
+    </li>
+</ul>
+</body>
+<script>
+    var oContainer = document.getElementById("container");
+    var aH3 = document.getElementsByTagName("h3");
+    var aUl = oContainer.getElementsByTagName("ul");
+    for(var i=0;i<aH3.length;i++){
+        aH3[i].bFlag = false;
+        aH3[i].onclick = function () {
+            var oUl = this.nextElementSibling;//兼容性问题
+//            if(oUl.style.display = "block";){
+//                oUl.style.display = "none";
+//            }else{
+//                oUl.style.display = "block";
+//            }
+            if(this.bFlag){
+                oUl.style.display = "none";
+            }else{
+                oUl.style.display = "block";
+            }
+            this.bFlag = !this.bFlag;
+      }
+    }
+
+
+
+//    var oContainer = document.getElementById("container");
+//    var aH3 = document.getElementsByTagName("h3");
+//    var aUl = oContainer.getElementsByTagName("ul");
+//    for(var i=0;i<aH3.length;i++){
+//        aH3[i].index = i;
+//
+//        function next(obj) {
+//            var nextNode = obj;
+//            do {
+//                nextNode = nextNode.nextSibling;
+//            } while( nextNode && nextNode.nodeType!=1)
+//            return nextNode;
+//        }
+//
+//        aH3[i].onclick = function () {
+//            var oUl = next(this);
+//            oUl.style.display = "block";
+//        }
+//    }
+</script>
+</html>
