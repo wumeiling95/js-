@@ -37,11 +37,15 @@
             position: relative;
             width: 2500px;
         }
+        .box .picture #pic{
+            position:absolute;
+
+        }
         .box .picture #pic li{
             float: left;
             position: relative;
         }
-        .box .right-bt{
+        .box .right-btn{
             position: relative;
             float: left;
             text-align: center;
@@ -61,8 +65,26 @@
             color: #ffffff;
             margin-right: 5px;
         }
-        .active{
-            background-color: #f67000;
+        .box .btnn li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            background-color: #ff6600;
+            font-size: 16px;
+            color: #ffffff;
+            margin-right: 5px;
+            position: relative;
+        }
+        .box .btnn .left-bt{
+            position: relative;
+            top: 170px;
+            left: -90px;
+        }
+        .box .btn .active{
+            background-color: #000;
         }
     </style>
 </head>
@@ -70,11 +92,12 @@
 <div class="box" id="box-bar">
     <div class="picture" id="pic-bar">
         <ul id="pic">
-            <li><img src="image/1.jpg"></li>
+            <li class="active"><img src="image/1.jpg"></li>
             <li><img src="image/2.jpg"></li>
             <li><img src="image/3.jpg"></li>
             <li><img src="image/4.jpg"></li>
             <li><img src="image/5.jpg"></li>
+            <li><img src="image/1.jpg"></li>
         </ul>
     </div>
     <div class="btn">
@@ -86,7 +109,7 @@
             <li>5</li>
         </ul>
     </div>
-    <div>
+    <div class="btnn">
         <ul class="left-bt">
             <li id="prev">&lt;</li>
             <li id="next">&gt;</li>
@@ -94,22 +117,79 @@
     </div>
 </div>
 <script>
-    var oPic = document.getElementById("pic");
+    var aLi = document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
+    var aImg = document.getElementById("pic");
+    var globalIndex = 0;
+    var direction = 10;
+    var aBtn = document.getElementsByClassName("left-bt")[0].getElementsByTagName("li");
+    aImg.style.width = aImg.offsetWidth + 500 +"px";
+    var isRun=true;
+    var oBox = document.getElementById("box-bar");
+    var isTimer= true;
 
-
-    oPic.innerHTML += oPic.innerHTML;
-    oPic.style.width = oPic.offsetWidth * 2 + "px";
-    var direction = 5;
-    var isRun = false ;
-    setInterval(function(){
-        oPic.style.left = oPic.offsetLeft + direction +"px";
-        if(oPic.offsetLeft>0){
-            oPic.style.left = - oPic.offsetWidth/2 +"px";
+    function changImg(index) {
+        isRun = false;
+        if(index > globalIndex){
+            direction = 10;
+        }else{
+            direction = -10;
         }
-        if (oPic.offsetLeft<-oPic.offsetWidth/2){
-            oPic.style.left = 0;
+        globalIndex = index;
+        if(index == -1){
+            aImg.style.left= -(aImg.offsetWidth - 500) +"px";
+            globalIndex = 4;
+            index=4;
         }
-    },20)
+        if(index==5){
+            globalIndex=0;
+        }
+        for(var j=0;j<aLi.length;j++){
+            aLi[j].className="";
+        }
+        aLi[globalIndex].className = "active";
+        var timer = setInterval(function () {
+            if(aImg.offsetLeft==-index*500){
+                clearInterval(timer);
+                isRun = true;
+                globalIndex = index;
+                if(index==5){
+                    aImg.style.left = 0;
+                    globalIndex = 0
+                }
+            }else{
+                aImg.style.left = aImg.offsetLeft - direction +"px";
+            }
+        },10);
+    }
+    for (var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover=function () {
+            if(isRun){
+                changImg(this.index);
+            }
+        }
+    }
+    aBtn[0].onclick = function () {
+        if(isRun){
+            changImg(globalIndex-1);
+        }
+    };
+    aBtn[1].onclick = function () {
+        if(isRun){
+            changImg(globalIndex+1);
+        }
+    };
+    setInterval(function () {
+        if(isRun && isTimer){
+            changImg(globalIndex+1);
+        }
+    },1000);
+    oBox.onmouseover= function () {
+        isTimer = false;
+    }
+    oBox.onmouseout = function () {
+        isTimer = true;
+    }
 </script>
 </body>
 </html>
