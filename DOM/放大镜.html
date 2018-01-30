@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #small #box{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            opacity: 0.3;
+            position:absolute;
+            z-index: 10;
+        }
+        #small-img{
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        #big-img{
+            position:absolute;
+            width: 600px;
+            height: 600px;
+        }
+        #bb{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        div{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="small">
+    <div class="b" id="box"></div>
+    <img id="small-img" src="image/11.jpg">
+</div>
+<div id="bb">
+    <img id="big-img" src="image/11.jpg">
+</div>
+<script>
+    var oBox = document.getElementById("box");
+    var oImg = document.getElementById("small-img");
+    var oBimg = document.getElementById("big-img");
+    oImg.onmousemove = function (e) {
+        var thisX = e.clientX - 50;
+        var thisY = e.clientY - 50;
+        if(thisX<0){
+            thisX = 0;
+        }
+        if(thisY <0){
+            thisY = 0;
+        }
+        var maxLeft = oImg.offsetWidth - oBox.offsetWidth;
+        var maxTop = oImg.offsetHeight - oBox.offsetHeight;
+        if(thisX>maxLeft){
+            thisX = maxLeft;
+        }
+        if(thisY>maxTop){
+            thisY = maxTop;
+        }
+        oBox.style.left = thisX +"px";
+        oBox.style.top = thisY +"px";
+        oBimg.style.left = -thisX*2+"px";
+        oBimg.style.top = -thisY*2+"px";
+    }
+
+</script>
+</body>
+</html>

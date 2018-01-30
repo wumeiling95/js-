@@ -17,7 +17,7 @@
             text-align: center;
             margin:0 auto;
         }
-        #container h3{
+        #container H3{
             background-color: #000000;
             color: #fff;
             cursor: pointer;
@@ -51,47 +51,53 @@
 </ul>
 </body>
 <script>
-    var oContainer = document.getElementById("container");
-    var aH3 = document.getElementsByTagName("h3");
-    var aUl = oContainer.getElementsByTagName("ul");
-    for(var i=0;i<aH3.length;i++){
-        aH3[i].bFlag = false;
-        aH3[i].onclick = function () {
-            var oUl = this.nextElementSibling;//兼容性问题
+//    var oContainer = document.getElementById("container");
+//    var aH3 = document.getElementsByTagName("h3");
+//    var aUl = oContainer.getElementsByTagName("ul");
+//    for(var i=0;i<aH3.length;i++){
+//        aH3[i].bFlag = false;
+//        aH3[i].onclick = function () {
+//            var oUl = this.nextElementSibling;//兼容性问题
 //            if(oUl.style.display = "block";){
 //                oUl.style.display = "none";
 //            }else{
 //                oUl.style.display = "block";
 //            }
-            if(this.bFlag){
+
+//
+//            if(this.bFlag){
+//                oUl.style.display = "none";
+//            }else{
+//                oUl.style.display = "block";
+//            }
+//            this.bFlag = !this.bFlag;
+//      }
+//    }
+
+
+
+    var oContainer = document.getElementById("container");
+    var aH3 = document.getElementsByTagName("h3");
+    var aUl = oContainer.getElementsByTagName("ul");
+
+    function next(obj) {
+        var nextNode = obj;
+        do {
+            nextNode = nextNode.nextSibling;
+        } while( nextNode && nextNode.nodeType!=1)
+            return nextNode;
+        }
+
+    for(var i=0;i<aH3.length;i++){
+        aH3[i].index = i;
+        aH3[i].onclick = function () {
+            var oUl = next(this);
+            if(oUl.style.display == "block"){
                 oUl.style.display = "none";
             }else{
                 oUl.style.display = "block";
             }
-            this.bFlag = !this.bFlag;
-      }
+        }
     }
-
-
-
-//    var oContainer = document.getElementById("container");
-//    var aH3 = document.getElementsByTagName("h3");
-//    var aUl = oContainer.getElementsByTagName("ul");
-//    for(var i=0;i<aH3.length;i++){
-//        aH3[i].index = i;
-//
-//        function next(obj) {
-//            var nextNode = obj;
-//            do {
-//                nextNode = nextNode.nextSibling;
-//            } while( nextNode && nextNode.nodeType!=1)
-//            return nextNode;
-//        }
-//
-//        aH3[i].onclick = function () {
-//            var oUl = next(this);
-//            oUl.style.display = "block";
-//        }
-//    }
 </script>
 </html>
