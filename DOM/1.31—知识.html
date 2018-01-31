@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function aa(index,ddd) {
+//        console.log(this);
+//        console.log(index);
+//        console.log(ddd);
+//    }
+//    var person={
+//        name:'xiaohong',
+//        age:'11'
+//    };
+//    aa.call(person,"1 1","222");
+//    aa.apply(person,["11","222"]);
+//
+//    function fn3() {
+//        console.log(this);
+//    }
+//    oDiv3.attachEvent("onclick",function () {
+//        fn3.call(oDiv3);
+//    })
+
+//    oDiv3 = function () {
+//        console.log("div3");
+//    }
+    function fn1() {
+        console.log("1");
+    }
+    addEvent(oDiv3,"click",fn1);
+    function addEvent(elem,eve,fun) {
+        if(elem.addEventListener){  //能力测试
+            elem.addEventListener(eve,fun);
+        }else if(ele.attachEvent){
+            ele.attachEvent("on"+eve,fn1);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="tt">添加</button>
+<ul id="dd">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+<script>
+    var oBtn = document.getElementById("tt");
+    var oUl = document.getElementById("dd");
+    oUl.onclick = function (e) {
+        console.log(e.target);
+        var This =window.event.srcElement || e.target;
+    }
+
+    oBtn.onclick = function () {
+        var node=document.createElement("LI");
+        var textnode=document.createTextNode("Water");
+        oUl.appendChild(textnode);
+//        document.getElementById("oUl").appendChild(node);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+             width: 400px;
+            height: 400px;
+            background: red;
+        }
+        .div2{
+            width: 300px;
+            height: 300px;
+            background: yellow;
+        }
+        .div3{
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="div3"></div>
+    </div>
+</div>
+<script>
+    var oDiv1 = document.getElementsByClassName("div1")[0];
+    var oDiv2 = document.getElementsByClassName("div2")[0];
+    var oDiv3 = document.getElementsByClassName("div3")[0];
+//    oDiv1.onclick = function () {
+//        console.log("div1");
+//    }
+//    oDiv2.onclick = function () {
+//        console.log("div2");
+//    }
+//    oDiv3.onclick = function (e) {
+//        console.log("div3");
+//        e.stopPropagation();
+//    }
+//    function fn1() {
+//        console.log("div3");
+//    }
+//    oDiv3.addEventListener("click",function () {
+//        console.log("div3");
+//    });
+//    oDiv3.addEventListener("click",function () {
+//        console.log("div3-1");
+//    });
+
+//    oDiv3.addEventListener("click",function (e) {
+//        console.log(this);
+//        console.log("div3");
+//    },false);
+
+
+    function fn1() {
+        console.log(this);
+    }
+    addEvent(oDiv3,"click",fn1);
+    function addEvent(elem,eve,fun) {
+        if(elem.addEventListener){  //能力测试
+            elem.addEventListener(eve,fun);
+        }else if(ele.attachEvent){
+            var aa = function () {
+                fun.call(elem);
+            };
+            elem.attachEvent("on"+eve,aa);
+        }else{
+            elem["on"+eve,fun]= fun;
+//                function () {
+//                fun;
+//            };
+        }
+    }
+
+
+//    removeEvent(oDiv3,"click",fn1);
+//    function removeEvent(elem,eve,fun){
+//        if(elem.removeEventListener){
+//            elem.removeEventListener(eve,fun);
+//        }else if(ele.detach){
+//            elem.detach("on"+elem,fun);
+//        }else{
+//            elem["on"+eve,fun]=null;
+//            }
+//    }
+</script>
+</body>
+</html>
