@@ -80,16 +80,16 @@
     }
 
 //封装
-//    removeEvent(oDiv3,"click",fn1);
-//    function removeEvent(elem,eve,fun){
-//        if(elem.removeEv entListener){
-//            elem.removeEventListener(eve,fun);
-//        }else if(ele.detach){
-//            elem.detach("on"+elem,fun);
-//        }else{
-//            elem["on"+eve,fun]=null;
-//            }
-//    }
+    removeEvent(oDiv3,"click",fn1);
+    function removeEvent(elem,eve,fun){
+        if(elem.removeEventListener){
+            elem.removeEventListener(eve,fun);
+        }else if(ele.detach){
+            elem.detach("on"+elem,fun);
+        }else{
+            elem["on"+eve,fun]=null;
+            }
+    }
 </script>
 </body>
 </html>
